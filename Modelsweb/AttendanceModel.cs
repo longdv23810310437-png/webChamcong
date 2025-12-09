@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace webChamcong.Models
+namespace webChamcong.Modelsweb
 {
     internal class AttendanceModel
     {
