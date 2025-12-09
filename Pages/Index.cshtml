@@ -1,0 +1,50 @@
+﻿@page
+@model webChamcong.Pages.IndexModel
+@{
+    ViewData["Title"] = "Chấm công";
+}
+
+<div class="text-center" style="margin-top: 50px;">
+    <h3 class="mb-3">👋 Xin chào, <span class="text-primary fw-bold">@Model.TenNhanVien</span>!</h3>
+    <p class="text-muted">Hôm nay là: <strong>@DateTime.Now.ToString("dd/MM/yyyy")</strong></p>
+
+    <div class="row justify-content-center mt-5">
+
+        <div class="col-auto">
+            <form method="post" asp-page-handler="CheckIn">
+                <button type="submit"
+                        class="btn btn-success shadow-lg"
+                        style="width: 180px; height: 180px; border-radius: 50%; font-size: 22px; font-weight: bold; border: 5px solid #fff; margin: 10px;">
+                    📥<br />CHECK IN
+                </button>
+            </form>
+        </div>
+
+        <div class="col-auto">
+            <form method="post" asp-page-handler="CheckOut">
+                <button type="submit"
+                        class="btn btn-warning shadow-lg text-white"
+                        style="width: 180px; height: 180px; border-radius: 50%; font-size: 22px; font-weight: bold; border: 5px solid #fff; margin: 10px;">
+                    📤<br />CHECK OUT
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-info mt-5 d-inline-block shadow-sm" style="min-width: 300px;">
+            <h5 class="alert-heading">📢 Thông báo</h5>
+            <hr>
+            <p class="mb-0">@Model.Message</p>
+            <small class="text-muted">Thời gian: @DateTime.Now.ToString("HH:mm:ss")</small>
+        </div>
+    }
+
+    <div class="mt-5" style="margin-bottom: 50px;">
+        <a asp-page="/Login" asp-page-handler="Logout" class="btn btn-outline-secondary btn-sm">
+            🚪 Đăng xuất tài khoản
+        </a>
+    </div>
+</div>

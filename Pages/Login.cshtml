@@ -1,0 +1,44 @@
+﻿@page
+@model webChamcong.Pages.LoginModel
+@{
+	ViewData["Title"] = "Login";
+}
+<div class="container" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>🔐 CHẤM CÔNG ONLINE</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="text" name="phone" class="form-control" placeholder="Nhập SĐT của bạn" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required />
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Đăng Nhập</button>
+                        </div>
+                    </form>
+
+                    @if (!string.IsNullOrEmpty(Model.Message))
+                    {
+                        <div class="alert alert-danger mt-3 text-center">
+                            @Model.Message
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="text-center mt-3 text-muted">
+                <small>Dành cho nội bộ nhân viên</small>
+            </div>
+        </div>
+    </div>
+</div>
